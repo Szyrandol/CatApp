@@ -1,0 +1,45 @@
+﻿@page "/CatFacts"
+
+<PageTitle>Cat Facts</PageTitle>
+
+<h1>Cat Facts</h1>
+
+<button class="btn btn-primary" @onclick="GetCatFact">Get a new Cat Fact!</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Fact</th>
+            <th>Length</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fact in facts)
+        {
+            <tr>
+                <td>@fact.Fact</td>
+                <td>@fact.Length.ToString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+
+    private CatFact[]? facts;
+
+    protected async Task GetCatFact()
+    {
+        IFactService factService = new FactService();
+        var fact = factService.Get();
+    }
+    private void AppendFact(string json)
+    {
+        // new arr with size facts.size +  1
+        // var fact = System.Text.Json.JsonSerializer.Deserialize<CatFact>(json);
+
+        // CatFact[] newArr
+
+        // Array.Resize<CatFact>(ref facts, facts.);
+    }
+}
