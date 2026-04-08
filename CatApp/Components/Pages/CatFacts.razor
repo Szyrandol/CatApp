@@ -1,4 +1,5 @@
 ﻿@page "/CatFacts"
+@inject IFactService FactService
 
 <PageTitle>Cat Facts</PageTitle>
 
@@ -30,8 +31,9 @@
 
     protected async Task GetCatFact()
     {
-        IFactService factService = new FactService();
-        var fact = factService.Get();
+        IFactStorage factRepository = new TextFileFactStorage();
+        var fact = await FactService.Get();
+        var isSuccess = await factRepository.SaveFactAsync(fact);
     }
     private void AppendFact(string json)
     {
