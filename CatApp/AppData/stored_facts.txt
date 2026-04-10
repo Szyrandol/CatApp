@@ -1,0 +1,14 @@
+[
+  {
+    "Fact": "Cats spend nearly 1/3 of their waking hours cleaning themselves.",
+    "Length": 64
+  },
+  {
+    "Fact": "The technical term for a cat\u2019s hairball is a \u201Cbezoar.\u201D",
+    "Length": 54
+  },
+  {
+    "Fact": "Approximately 24 cat skins can make a coat.",
+    "Length": 43
+  }
+]

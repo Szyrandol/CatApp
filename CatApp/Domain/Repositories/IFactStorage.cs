@@ -1,10 +1,9 @@
-﻿using CatApp.Domain.Entities;
-
+﻿
 namespace CatApp.Domain.Repositories;
 
 public interface IFactStorage
 {
-    Task<bool> SaveFactAsync(string fact);
-    Task<List<CatFact>> GetAllAsync();
-    Task<bool> SaveAllAsync(List<CatFact> facts);
+    Task<CatFact?> Store(string fact);
+    Task<List<CatFact>> GetAll();
+    Task<bool> StoreAll(List<CatFact> facts);
 }

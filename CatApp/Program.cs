@@ -1,5 +1,7 @@
+using CatApp.Application.Abstractions;
+using CatApp.Application.Services;
 using CatApp.Client.Pages;
-using CatApp.Components;
+using CatApp.Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +10,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddHttpClient<IFactService, FactService>();
-builder.Services.AddSingleton<IFactStorage, TextFileFactStorage>();
+builder.Services.AddHttpClient<IFactClient, FactClient>();
+builder.Services.AddScoped<IFactStorage, TextFileFactStorage>();
+builder.Services.AddScoped<IFactService, FactService>();
 
 var app = builder.Build();
 

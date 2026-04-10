@@ -1,4 +1,5 @@
 ﻿@page "/CatFacts"
+@rendermode InteractiveServer
 @inject IFactService FactService
 
 <PageTitle>Cat Facts</PageTitle>
@@ -26,22 +27,17 @@
 </table>
 
 @code {
+    private CatFact[]? facts = [];
 
-    private CatFact[]? facts;
-
-    protected async Task GetCatFact()
+    protected override async Task OnInitializedAsync()
     {
-        IFactStorage factRepository = new TextFileFactStorage();
-        var fact = await FactService.Get();
-        var isSuccess = await factRepository.SaveFactAsync(fact);
+        var list = await FactService.GetAll();
+        facts = list.ToArray();
     }
-    private void AppendFact(string json)
+    private async Task GetCatFact(MouseEventArgs args)
     {
-        // new arr with size facts.size +  1
-        // var fact = System.Text.Json.JsonSerializer.Deserialize<CatFact>(json);
-
-        // CatFact[] newArr
-
-        // Array.Resize<CatFact>(ref facts, facts.);
+        var fact = await FactService.GetAndStore();
+        facts = facts.Append(fact).ToArray();
+        return;
     }
 }
