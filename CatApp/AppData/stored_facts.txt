@@ -10,5 +10,21 @@
   {
     "Fact": "Approximately 24 cat skins can make a coat.",
     "Length": 43
+  },
+  {
+    "Fact": "A cat\u0027s appetite is the barometer of its health. Any cat that does not eat or drink for more than two days should be taken to a vet.",
+    "Length": 132
+  },
+  {
+    "Fact": "The first commercially cloned pet was a cat named \u0022Little Nicky.\u0022 He cost his owner $50,000, making him one of the most expensive cats ever.",
+    "Length": 140
+  },
+  {
+    "Fact": "A cat\u2019s hearing is better than a dog\u2019s. And a cat can hear high-frequency sounds up to two octaves higher than a human.",
+    "Length": 119
+  },
+  {
+    "Fact": "The Ancient Egyptian word for cat was mau, which means \u0022to see\u0022.",
+    "Length": 64
   }
 ]

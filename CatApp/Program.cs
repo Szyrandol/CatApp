@@ -1,6 +1,5 @@
 using CatApp.Application.Abstractions;
 using CatApp.Application.Services;
-using CatApp.Client.Pages;
 using CatApp.Presentation.Components;
 
 var builder = WebApplication.CreateBuilder(args);
