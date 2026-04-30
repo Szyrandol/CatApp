@@ -1,0 +1,19 @@
+﻿@inject IJSRuntime JS
+
+<button class="btn btn-primary" @onclick="SaveFact">Save Fact</button>
+
+@code {
+    [Parameter]
+    public CatFact[] FactArr{ get; set; }
+    private static readonly JsonSerializerOptions s_Options = new()
+    {
+        WriteIndented = true,
+        PropertyNameCaseInsensitive = true
+    };
+
+    private async Task SaveFact()
+    {
+        var jsonText = JsonSerializer.Serialize(FactArr, s_Options);
+        await JS.InvokeVoidAsync("downloadFile", "catfact.txt", jsonText);
+    }
+}

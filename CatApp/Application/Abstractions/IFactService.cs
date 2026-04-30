@@ -4,4 +4,5 @@ public interface IFactService
 {
     Task<CatFact> GetAndStore();
     Task<List<CatFact>> GetAll();
+    Task<string> GetAllAsString();
 }

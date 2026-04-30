@@ -8,7 +8,7 @@
     <h1 >Cat Facts</h1>
     <div>
         <button class="btn btn-primary" @onclick="GetCatFact">Get a new Cat Fact!</button>
-        <button class="btn btn-primary" @onclick="SaveFactLocally"> Save the fact locally</button>
+        <SaveLocallyButton FactArr="facts" />
     </div>
 </div>
 
@@ -31,7 +31,7 @@
 </table>
 
 @code {
-    private CatFact[]? facts = [];
+    private CatFact[] facts = [];
 
     protected override async Task OnInitializedAsync()
     {
@@ -43,9 +43,5 @@
         var fact = await FactService.GetAndStore();
         facts = facts.Append(fact).ToArray();
         return;
-    }
-    private Task SaveFactLocally(MouseEventArgs args)
-    {
-        throw new NotImplementedException();
     }
 }

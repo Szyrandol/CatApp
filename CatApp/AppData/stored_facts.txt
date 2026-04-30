@@ -26,5 +26,13 @@
   {
     "Fact": "The Ancient Egyptian word for cat was mau, which means \u0022to see\u0022.",
     "Length": 64
+  },
+  {
+    "Fact": "In 1987 cats overtook dogs as the number one pet in America.",
+    "Length": 60
+  },
+  {
+    "Fact": "Approximately 1/3 of cat owners think their pets are able to read their minds.",
+    "Length": 78
   }
 ]

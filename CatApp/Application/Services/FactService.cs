@@ -20,4 +20,9 @@ public class FactService : IFactService
     {
         return await _factStorage.GetAll();
     }
+
+    public async Task<string> GetAllAsString()
+    {
+        return await _factStorage.GetAllAsString();
+    }
 }

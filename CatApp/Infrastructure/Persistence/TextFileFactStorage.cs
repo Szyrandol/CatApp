@@ -24,14 +24,12 @@ public class TextFileFactStorage : IFactStorage
 
     public async Task<List<CatFact>> GetAll()
     {
-        if (!File.Exists(filePath))
+        string jsonString = await GetAllAsString();
+
+        if (jsonString == string.Empty)
         {
-           var directory = Path.GetDirectoryName(filePath);
-            Directory.CreateDirectory(directory!);
             return [];
         }
-
-        var jsonString = await File.ReadAllTextAsync(filePath);
         return JsonSerializer.Deserialize<List<CatFact>>(jsonString, s_Options) ?? [];
     }
     public async Task<bool> StoreAll(List<CatFact> facts)
@@ -46,5 +44,17 @@ public class TextFileFactStorage : IFactStorage
         {
             throw;
         }
+    }
+
+    public async Task<string> GetAllAsString()
+    {
+        if (!File.Exists(filePath))
+        {
+            var directory = Path.GetDirectoryName(filePath);
+            Directory.CreateDirectory(directory!);
+            return string.Empty;
+        }
+
+        return await File.ReadAllTextAsync(filePath);
     }
 }
